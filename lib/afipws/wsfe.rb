@@ -93,8 +93,7 @@ module Afipws
       iva = comprobante.delete :imp_iva
       iva_receptor_id = comprobante.delete :condicion_iva_receptor_id
       comprobante.delete :tributos if comprobante[:imp_trib] == 0
-      comprobante.merge cbte_desde: nro, cbte_hasta: nro, 'ImpIVA' => iva
-      comprobante.merge cbte_desde: nro, cbte_hasta: nro, 'CondicionIVAReceptorId' => iva_receptor_id
+      comprobante.merge cbte_desde: nro, cbte_hasta: nro, 'ImpIVA' => iva, 'CondicionIVAReceptorId' => iva_receptor_id
     end
 
     def solicitar_caea
